@@ -65,6 +65,7 @@ stop_mixer = False
 blood_list = []
 blood_stain_list = []
 keep_playing = True
+HIGHT_LOADING_BAR = HEIGHT*0.03
 loading_finished = False
 loading_progress = 0
 loading_bar_width = 8
@@ -86,12 +87,12 @@ bg_height = BG.get_height()
 bg_x = (WIDTH - bg_width) // 2
 bg_y = (HEIGHT - bg_height) // 2
 
-LOADING_BG = pygame.transform.scale(pygame.image.load("assets\images\Loading_Bar_Background.png"), (WIDTH*.3, HEIGHT*.03))
-LOADING_BG_RECT = LOADING_BG.get_rect(center=(WIDTH//2, HEIGHT*.7))
+LOADING_BG = pygame.transform.scale(pygame.image.load("assets\images\Loading_Bar_Background.png"), (WIDTH*.3, HIGHT_LOADING_BAR))
+LOADING_BG_RECT = LOADING_BG.get_rect(center=(WIDTH//2, HEIGHT*.9))
 LOADING_BAR = pygame.image.load("assets\images\Loading_Bar.png")
-LOADING_BAR = pygame.transform.scale(pygame.image.load("assets\images\Loading_Bar.png"), (WIDTH*.01, HEIGHT*.03))
+LOADING_BAR = pygame.transform.scale(pygame.image.load("assets\images\Loading_Bar.png"), (WIDTH*.01, HIGHT_LOADING_BAR))
 position_x_loading_bar = WIDTH//2 - LOADING_BG.get_width()//2
-LOADING_BAR_RECT = LOADING_BAR.get_rect(midleft=(position_x_loading_bar, HEIGHT*.7))
+LOADING_BAR_RECT = LOADING_BAR.get_rect(midleft=(position_x_loading_bar, HEIGHT*.9))
 BG_opt = pygame.image.load("assets/images/Options.png")
 WIN.blit(BG, (bg_x, bg_y))
 #WIN.blit(LOADING_BAR, LOADING_BAR_RECT)
@@ -142,8 +143,8 @@ def draw_loading_bar(i):
     #loading progress bar
     loading_bar_width = int((i / 1625) * WIDTH*.3)
     print('loading_bar_width: ', loading_bar_width)
-    LOADING_BAR = pygame.transform.scale(LOADING_BAR, (1+loading_bar_width, HEIGHT*.03))
-    LOADING_BAR_RECT = LOADING_BAR.get_rect(midleft=(position_x_loading_bar, HEIGHT*.7))
+    LOADING_BAR = pygame.transform.scale(LOADING_BAR, (1+loading_bar_width, HIGHT_LOADING_BAR))
+    LOADING_BAR_RECT = LOADING_BAR.get_rect(midleft=(position_x_loading_bar, HEIGHT*.9))
     WIN.blit(LOADING_BG, LOADING_BG_RECT)
     WIN.blit(LOADING_BAR, LOADING_BAR_RECT)
     pygame.display.update()
